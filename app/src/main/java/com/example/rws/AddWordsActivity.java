@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.rws.database.Words;
+import com.example.rws.database.Word;
 import com.example.rws.database.WordsDatabase;
 
 public class AddWordsActivity extends AppCompatActivity {
@@ -16,21 +16,21 @@ public class AddWordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_words);
-        EditText word = findViewById(R.id.editTextTextPersonName);
+        final  EditText TextWord = findViewById(R.id.TVWord);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNewWord(word.getText().toString());
+                addNewWord(TextWord.getText().toString());
             }
         });
     }
-    private void addNewWord(String word){
+    private void addNewWord(String YourWord){
         WordsDatabase db = WordsDatabase.getDbInstance(this.getApplicationContext());
-        Words words = new Words();
-        words.word = word;
+        Word word = new Word();
+        word.YourWord = YourWord;
 
-        db.wordsDao().insertWords(words);
+        db.wordsDao().insertWords(word);
         finish();
     }
 }

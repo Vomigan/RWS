@@ -5,9 +5,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Words {
+public class Word {
     @PrimaryKey(autoGenerate = true)
-    public int id;
-    @ColumnInfo(name = "word")
-    public String word;
+    public int uid;
+    @ColumnInfo(name = "YourWord")
+    public String YourWord;
 }
